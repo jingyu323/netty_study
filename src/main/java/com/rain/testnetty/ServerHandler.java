@@ -8,9 +8,9 @@ public class ServerHandler  extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         super.channelRead(ctx, msg);
-        System.out.println("channelRead==:"+msg+",count="+count);
+        System.out.println("ServerHandler1 channelRead==:"+msg+",count="+count);
 
-        ctx.writeAndFlush("channelRead==:"+msg+"red finesd....."+",count="+count);
+        ctx.writeAndFlush("ServerHandler1 channelRead==:"+msg+"red finesd....."+",count="+count);
         count++;
     }
 
