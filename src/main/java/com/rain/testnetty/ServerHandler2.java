@@ -3,21 +3,19 @@ package com.rain.testnetty;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class ServerHandler  extends ChannelInboundHandlerAdapter {
-    private  static  int count=0;
+public class ServerHandler2 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         super.channelRead(ctx, msg);
-        System.out.println("channelRead==:"+msg+",count="+count);
+        System.out.println(" ServerHandler2 channelRead==:"+msg);
 
-        ctx.writeAndFlush("channelRead==:"+msg+"red finesd....."+",count="+count);
-        count++;
+//        ctx.writeAndFlush("ServerHandler2 red finesd.....");
     }
 
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("channelRegistered==:");
+        System.out.println("ServerHandler2 channelRegistered==:");
         super.channelRegistered(ctx);
     }
 
@@ -29,19 +27,19 @@ public class ServerHandler  extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
-        System.out.println("channelInactive==:");
+        System.out.println("ServerHandler2 channelInactive==:");
     }
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         super.userEventTriggered(ctx, evt);
-        System.out.println("userEventTriggered==:");
+        System.out.println("ServerHandler2 userEventTriggered==:");
     }
 
     @Override
     public void channelWritabilityChanged(ChannelHandlerContext ctx) throws Exception {
         super.channelWritabilityChanged(ctx);
-        System.out.println("channelWritabilityChanged==:");
+        System.out.println("ServerHandler2 channelWritabilityChanged==:");
     }
 
     @Override

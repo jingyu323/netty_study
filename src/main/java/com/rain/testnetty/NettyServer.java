@@ -36,6 +36,7 @@ public class NettyServer {
                             ch.pipeline().addLast("decoder", new StringDecoder());
                             ch.pipeline().addLast("encoder", new StringEncoder());
                             ch.pipeline().addLast(new ServerHandler());
+                            ch.pipeline().addLast(new ServerHandler2());
                         }
                     });
             future = bootstrap.bind(port).sync();

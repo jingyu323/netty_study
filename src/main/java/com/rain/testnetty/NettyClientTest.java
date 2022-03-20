@@ -19,15 +19,15 @@ public class NettyClientTest {
 
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(group).channel(NioSocketChannel.class)
-                .option(ChannelOption.TCP_NODELAY,true)
+//                .option(ChannelOption.TCP_NODELAY,true)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
                         ChannelPipeline p = socketChannel.pipeline();
                         p.addLast("decoder", new StringDecoder());
                         p.addLast("encoder", new StringEncoder());
-                        p.addLast(new Client01Handler());
-                        p.addLast(new Client02Handler());
+                        p.addLast(new FirstClientHandler());
+//                        p.addLast(new Client02Handler());
                     }
                 });
         ChannelFuture future = null;

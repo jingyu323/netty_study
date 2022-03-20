@@ -19,4 +19,6 @@ public class Client02Handler extends ChannelInboundHandlerAdapter {
         cause.printStackTrace();
         ctx.close();
     }
+
+
 }
