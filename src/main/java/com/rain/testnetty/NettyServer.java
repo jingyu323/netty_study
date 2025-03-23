@@ -43,7 +43,8 @@ public class NettyServer {
                     });
             future = bootstrap.bind(port).sync();
             System.out.println("Server start listen at " + port);
-            future.channel().closeFuture().sync();
+//            阻止方法执行到finall中的关闭代码
+//            future.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
             boosGroup.shutdownGracefully();
