@@ -3,12 +3,15 @@ package com.rain.testnetty;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.nio.charset.Charset;
 
 public class FirstClientHandler  extends ChannelInboundHandlerAdapter {
     private static  int count=0;
+    private static final Logger logger = LoggerFactory.getLogger(FirstClientHandler.class);
 
     private static  int  readcount=0;
     @Override
@@ -23,7 +26,13 @@ public class FirstClientHandler  extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+
+
         super.channelRead(ctx, msg);
+
+        ByteBuf in = (ByteBuf) msg;
+        logger.info("msg type: " + (in.hasArray()?"堆内存":"直接内存"));
+
         System.out.println(" FirstClientHandler channelRead==:"+msg+",readcount="+readcount);
         readcount++;
 

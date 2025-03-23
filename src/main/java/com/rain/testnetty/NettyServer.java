@@ -11,10 +11,13 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 
 public class NettyServer {
+    private static final Logger logger = LoggerFactory.getLogger(NettyServer.class);
     private int port;
     public NettyServer(int port) {
         this.port = port;
